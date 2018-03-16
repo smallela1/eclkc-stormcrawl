@@ -1,0 +1,42 @@
+# skip file: ftp: and mailto: urls
+-^(file|ftp|mailto):
+
+# skip image and other suffixes we can't parse or are not likely to be relevant
+# if you want to crawl images or videos or archives then you should comment out this line
+# -(?i)\.(apk|gif|jpg|png|ico|css|sit|eps|wmf|rar|tar|zip|gz|rpm|tgz|mov|exe|jpeg|bmp|js|mpg|mp3|mp4|ogv)(\?|&|$)
+
+-(?i)\.(apk|gif|GIF|jpg|JPG|png|PNG|ico|ICO|css|CSS|swf|SWF|sit|SIT|eps|EPS|wmf|WMF|zip|ZIP|mpg|MPG|xls|XLS|gz|GZ|rpm|RPM|tgz|TGZ|mov|MOV|exe|EXE|jpeg|JPEG|bmp|BMP|svg|js|JS|jsx|xml|XML|xsd|XSD|mp3|MP3|woff|eot|EOT|map|MAP|DS_Store|php|PHP|json|JSON|epub|db|xsd|XSD|mp4|MP4|story|ibooks)(\?|&|$)
+
+
+
+# also skip with Ajaxcachekey
+-\.(gif|GIF|jpg|JPG|png|PNG|ico|ICO|css|CSS|swf|SWF|sit|SIT|eps|EPS|wmf|WMF|zip|ZIP|mpg|MPG|xls|XLS|gz|GZ|rpm|RPM|tgz|TGZ|mov|MOV|exe|EXE|jpeg|JPEG|bmp|BMP|svg|js|JS|jsx|xml|XML|xsd|XSD|mp3|MP3|woff|eot|EOT|map|MAP|php|PHP|json|JSON|epub|db|xsd|XSD|mp4|MP4|story|ibooks);\d+$
+
+# skip URLs containing certain characters as probable queries, etc.
+-[*!@]
+
+-[?][^l^p]
+
+# skip URLs with slash-delimited segment that repeats 3+ times, to break loops
+# very time-consuming : use BasicURLFilter instead
+#-.*(/[^/]+)/[^/]+\1/[^/]+\1/
+
+# exclude stuff
+
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/0x
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/;
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/archive
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/es\/archive
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/es\/node
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/hslc\/global_rd
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/hslc\/hs\/careers
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/hslc\/standards
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/hw_temporary_objects
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/id-
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/internal-use
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/node
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/sites\/default\/files\/video\/transcripts
+-^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/wavemaster
+
+# accept anything else
++^(https?|s?):\/\/([a-z0-9]*\.)*eclkc.ohs.acf.hhs.gov\/

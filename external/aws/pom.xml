@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.digitalpebble.stormcrawler</groupId>
+		<artifactId>storm-crawler-external</artifactId>
+		<version>1.8-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>storm-crawler-aws</artifactId>
+	<packaging>jar</packaging>
+
+	<name>storm-crawler-aws</name>
+	<url>https://github.com/DigitalPebble/storm-crawler/tree/master/external/aws</url>
+	<description>AWS resources for StormCrawler</description>
+
+	<properties>
+		<aws.version>1.10.77</aws.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-cloudsearch</artifactId>
+			<version>${aws.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>${aws.version}</version>
+		</dependency>
+	</dependencies>
+</project>

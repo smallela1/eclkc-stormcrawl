@@ -1,0 +1,48 @@
+{
+  "com.digitalpebble.stormcrawler.parse.ParseFilters": [
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.XPathFilter",
+      "name": "XPathFilter",
+      "params": {
+        "canonical": "//*[@rel=\"canonical\"]/@href",
+        "parse.description": [
+            "//*[@name=\"description\"]/@content",
+            "//*[@name=\"Description\"]/@content"
+         ],
+        "parse.title": [
+            "//TITLE",
+            "//META[@name=\"title\"]/@content"
+         ],
+         "parse.keywords": "//META[@name=\"keywords\"]/@content",
+         "parse.abstract": "//META[@name=\"abstract\"]/@content",
+         "parse.topic": "//META[@name=\"topic\"]/@content",
+         "parse.age-group": "//META[@name=\"age-group\"]/@content",
+         "parse.audience": "//META[@name=\"audience\"]/@content",
+         "parse.program-option": "//META[@name=\"program-option\"]/@content",
+         "parse.program-type": "//META[@name=\"program-type\"]/@content",
+         "parse.resource-type": "//META[@name=\"resource-type\"]/@content",
+         "parse.national-centers": "//META[@name=\"national-centers\"]/@content",
+         "parse.series": "//META[@name=\"series\"]/@content",
+         "parse.language": "//META[@name=\"language\"]/@content",
+         "parse.short-title": "//META[@name=\"short-title\"]/@content"
+      }
+    },
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.ContentFilter",
+      "name": "ContentFilter",
+      "params": {
+        "pattern": "//DIV[@id=\"maincontent\"]",
+        "pattern2": "//DIV[@itemprop=\"articleBody\"]",
+        "pattern3": "//ARTICLE"
+       }
+    },
+    {
+      "class": "com.digitalpebble.stormcrawler.parse.filter.DomainParseFilter",
+      "name": "DomainParseFilter",
+      "params": {
+        "key": "domain",
+        "byHost": false
+       }
+    }
+  ]
+}
